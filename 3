@@ -1,0 +1,42 @@
+<?php
+
+class User
+{
+    private $name;
+    private $email;
+    
+    public function __construct($name, $email)
+    {
+        $this->name = $name;
+        $this->email = $email;
+    }
+    
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
+    public function sendEmail($subject, $message)
+    {
+        // Логика отправки электронной почты
+        echo "Email sent to {$this->email}:";
+        echo "Subject: $subject";
+        echo "Message: $message";
+    }
+}
+
+$user = new User("John Doe", "johndoe@example.com");
+$name = $user->getName();
+$email = $user->getEmail();
+echo "User: $name ($email)";
+
+$subject = "Hello!";
+$message = "This is a test email.";
+$user->sendEmail($subject, $message);
+
+?>
